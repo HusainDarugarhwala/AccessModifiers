@@ -1,0 +1,100 @@
+/*
+ * The program serves a purpose of learning basic concept of Access Modifiers / Access Specifiers 
+ * 
+ * */
+
+
+
+
+//importing Scanner class to get a value from user of type 'Double'
+import java.util.Scanner;
+
+
+// Class test is being defined
+class test {
+	int a ;   					//Default Access Modifier
+	int b;						//Default Access Modifier
+	public int c;				//Public Access Modifier
+	private double d;			//Private Access Modifier
+	protected int e;			//Protected Access Modifier
+	
+	
+	//'setValue ()' to set a user's chosen value in private instance member 'd'
+	 double setValue() {
+		 
+		 System.out.println("Set Value For 'Instance Variable d' In New Object \n");
+		 Scanner value = new Scanner(System.in);
+		 d=value.nextDouble();
+		 return (d); 
+		 
+	 }
+	 
+	 //'Show()' to display the sum and values of members of class test
+	 void Show() {
+		 
+		 System.out.println("\n");
+		 System.out.println("The Value of Private Instance Variable D is "+d+"\n");
+		 System.out.println("The Sum Of Following Variables are as Follows: \n ");
+		 System.out.println("a="+a+"  +  "+"b="+b+"  +  "+"c="+c+"  +  "+"d="+d+"  +  "+"e="+e);
+		 System.out.println("\nSum = "+Sum()+"\n\n");
+		 
+	}
+	 
+	 //'Sum()' to Calculate the sum of all variables in class test including private, protected, public and default members
+	 double Sum() {
+		 
+		 double sum;
+		 sum=a+b+c+d+e;
+		 return sum;
+	 }
+	
+	
+}//closing of class test definition
+
+// class AccessControl is on duty :)
+class AccessControl {
+
+	public static void main(String[] args) {
+		// Creating Objects
+		test obj1 = new test();
+		test obj2 = new test();
+		test obj3 = new test();
+		
+		obj1.a=45;			//initializing instance variable a directly with object of class test in class AccessControl
+		obj1.b=48;			//initializing instance variable b directly with object of class test in class AccessControl
+		obj1.c=98;			//initializing instance variable c directly with object of class test in class AccessControl
+/*		obj1.d=45; this line is restricted as the instance d of class test is private
+ *		the above line if commented out will give an error as d is private and can't be accessed directly 
+ */		
+		obj1.setValue(); /* So , to set the value of d ,
+						  * we have created a Method 'setValue' to access 'd', as both are members of same class
+						  */
+		obj1.e=98;
+		obj1.Sum();			//calling Sum()
+		obj1.Show();		//Calling Show()
+		
+		obj2.a=45;
+		obj2.b=48;
+		obj2.c=98;
+		obj2.e=98;
+		obj2.setValue();
+		obj2.Sum();
+		obj2.Show();
+		
+		obj3.a=45;
+		obj3.b=48;
+		obj3.c=98;
+		obj3.e=98;
+		obj3.setValue();
+		obj3.Sum();
+		obj3.Show();
+		
+		
+		
+		
+		
+
+	}//Main () ends here 
+
+}//class AccessControl ends here as well
+ //****			Happy Programming			**** 
